@@ -2,7 +2,7 @@ module.exports = {
   theme: '',
   title: 'Jack-ui',
   description: 'jack-ui，一套个人独立开发的基于 Vue 2.0 的桌面端组件库',
-  base: '/',
+  base: '/jack-ui/',
   port: '8080',
   themeConfig: {
     nav: [ // 配置顶部导航栏
