@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+        "@/*": ["examples/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

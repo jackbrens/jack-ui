@@ -1,0 +1,14 @@
+# 定义此文件为根config文件
+root = true
+
+# 默认的文件位置
+[*]
+
+## 统一使用utf-8编码
+charset = utf-8
+
+## 统一缩进宽度
+indent_size = 2
+
+## 统一缩进字符为空格(tab or space)
+indent_style = space
