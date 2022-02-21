@@ -1,0 +1,12 @@
+{
+  "jc-button": {
+    "attributes": [
+      "type",
+      "plain",
+      "round",
+      "circle",
+      "disabled",
+      "icon"
+    ]
+  }
+}

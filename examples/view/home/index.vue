@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="row">
-    <jc-button>朴树</jc-button>
+    <jc-button disabled>朴树</jc-button>
     <jc-button type="primary" disabled>主要按钮</jc-button>
     <jc-button type="success">成功按钮</jc-button>
     <jc-button type="info">信息按钮</jc-button>
@@ -54,7 +54,7 @@
   </div>
   <div class="row">
     <jc-button @click="visible = true">点击打开dialog</jc-button>
-    <jc-dialog width="60%" top="200px" :visible.sync="visible" title="请打开麦克风交流">
+    <jc-dialog width="60%" top="200px" :visible.sync="visible" title="请打开麦克风交流" >
       这是一段信息。
       <template v-slot:footer>
         <jc-button type="primary" @click="visible = false">确定</jc-button>
@@ -64,7 +64,8 @@
   </div>
   <div class="row">
     <div class="jc-input">
-      <jc-input v-model="username" clearable disabled></jc-input>
+      <jc-input></jc-input>
+      <input type="text">
     </div>
   </div>
   <div class="row">
@@ -92,7 +93,7 @@
   </div>
   <div class="row">
     <jc-checkbox-group v-model="checked2">
-      <jc-checkbox label="备选项1"></jc-checkbox>
+      <jc-checkbox checked label="备选项1"></jc-checkbox>
       <jc-checkbox label="备选项2"></jc-checkbox>
       <jc-checkbox label="备选项3"></jc-checkbox>
     </jc-checkbox-group>
@@ -124,7 +125,20 @@
       </jc-form-item>
     </jc-form>
   </div>
-
+  <jc-row>
+    <jc-checkbox-group v-model="checked2">
+      <jc-checkbox label="备选项1"></jc-checkbox>
+      <jc-checkbox label="备选项2"></jc-checkbox>
+      <jc-checkbox label="备选项3"></jc-checkbox>
+    </jc-checkbox-group>
+  </jc-row>
+  <jc-row>
+    <jc-checkbox-group v-model="checked2">
+      <jc-checkbox label="备选项1"></jc-checkbox>
+      <jc-checkbox label="备选项2"></jc-checkbox>
+      <jc-checkbox label="备选项3"></jc-checkbox>
+    </jc-checkbox-group>
+  </jc-row>
 </div>
 </template>
 

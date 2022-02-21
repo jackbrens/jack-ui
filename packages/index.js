@@ -1,3 +1,5 @@
+// 导入icon图标样式
+import '@fortawesome/fontawesome-free/css/all.css';
 import Button from './button';
 import ButtonGroup from './button-group';
 import Dialog from './dialog';
@@ -9,6 +11,7 @@ import Checkbox from './checkbox';
 import CheckboxGroup from './checkbox-group';
 import Form from './from';
 import FormItem from './form-item';
+import Row from './row';
 
 const components = [
   Button,
@@ -21,11 +24,11 @@ const components = [
   Checkbox,
   CheckboxGroup,
   Form,
-  FormItem
+  FormItem,
+  Row
 ]
 
 // 注册全局组件
-// eslint-disable-next-line no-unused-vars
 const install = function (Vue) {
   components.forEach(item => {
     Vue.component(item.name, item);

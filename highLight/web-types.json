@@ -1,0 +1,168 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "framework": "vue",
+  "version": "1.0.0",
+  "name": "jack-ui",
+  "contributions": {
+    "html": {
+      "types-syntax": "typescript",
+      "tags": [
+        {
+          "name": "jc-button",
+          "attributes": [
+            {
+              "name": "type"
+            },
+            {
+              "name": "plain",
+              "type": "boolean"
+            },
+            {
+              "name": "round",
+              "type": "boolean"
+            },
+            {
+              "name": "circle",
+              "type": "boolean"
+            },
+            {
+              "name": "icon"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "iconRight"
+            }
+          ]
+        },
+        {
+          "name": "jc-button-group"
+        },
+        {
+          "name": "jc-input",
+          "attributes": [
+            {
+              "name": "type"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "placeholder"
+            },
+            {
+              "name": "clearable",
+              "type": "boolean"
+            },
+            {
+              "name": "show-password",
+              "type": "boolean"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "jc-radio",
+          "attributes": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "label"
+            }
+          ]
+        },
+        {
+          "name": "jc-radio-group"
+        },
+        {
+          "name": "jc-switch",
+          "attributes": [
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "active-text"
+            },
+            {
+              "name": "in-active-text"
+            },
+            {
+              "name": "active-color"
+            },
+            {
+              "name": "in-active-color"
+            }
+          ]
+        },
+        {
+          "name": "jc-checkbox",
+          "attributes": [
+            {
+              "name": "label"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "jc-checkbox-group"
+        },
+        {
+          "name": "jc-dialog",
+          "attributes": [
+            {
+              "name": "visible"
+            },
+            {
+              "name": "title"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "center",
+              "type": "boolean"
+            }
+          ]
+        },
+        {
+          "name": "jc-form",
+          "attributes": [
+            {
+              "name": "model"
+            },
+            {
+              "name": "label-width"
+            }
+          ]
+        },
+        {
+          "name": "jc-form-item",
+          "attributes": [
+            {
+              "name": "label"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

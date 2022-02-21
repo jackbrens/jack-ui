@@ -1,0 +1,20 @@
+{
+  "jc-button/type": {
+    "type": "string"
+  },
+  "jc-button/plain": {
+    "type": "boolean"
+  },
+  "jc-button/round": {
+    "type": "boolean"
+  },
+  "jc-button/circle": {
+    "type": "boolean"
+  },
+  "jc-button/disabled": {
+    "type": "boolean"
+  },
+  "jc-button/icon": {
+    "type": "string"
+  }
+}

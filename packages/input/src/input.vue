@@ -90,7 +90,7 @@ export default {
     line-height: 40px;
     outline: none;
     padding: 0 15px;
-    transition: border-color .2s cubic-bezier(.645,045,.355,1);
+    transition: border-color .2s;
     width: 100%;
     &:focus{
       outline: none;

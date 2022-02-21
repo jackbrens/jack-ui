@@ -1,7 +1,11 @@
 {
   "name": "jack-ui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.2",
+  "private": false,
+  "main": "dist/jack-ui.umd.js",
+  "author": {
+    "name": "JackBrens"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -50,5 +54,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "web-types": "highLight/web-types.json"
 }

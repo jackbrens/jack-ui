@@ -44,10 +44,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    iconRight: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
