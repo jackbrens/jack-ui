@@ -21,5 +21,11 @@ export default {
 </script>
 
 <style scoped>
+.jc-checkbox-group{
+  width: 320px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 </style>

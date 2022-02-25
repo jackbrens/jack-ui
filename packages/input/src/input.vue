@@ -1,18 +1,31 @@
 <template>
   <div class="jc-input" :class="{ 'jc-input_suffix': showSuffix }">
-    <input
+    <template v-if="type !== 'textarea'">
+      <input
+        :disabled="disabled"
+        :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
+        :name="name"
+        :readonly="readonly"
+        :placeholder="placeholder"
+        :value="value"
+        class="jc-input__inner"
+        :class="{ 'is-disabled': disabled }"
+        @input="handleInput"
+        @blur="handleBlur"
+        @focus="handleFocus">
+      <span class="jc-input__suffix" v-if="showSuffix">
+        <i class="far fa-window-close" v-if="clearable && value" @click="clearInput"></i>
+        <i class="far fa-eye" v-if="showPassword" @click="handlePasswordVisible"></i>
+      </span>
+    </template>
+    <textarea
+      v-else
+      class="jc-textarea__inner"
       :disabled="disabled"
-      :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
-      :name="name"
-      :placeholder="placeholder"
-      :value="value"
-      class="jc-input__inner"
-      :class="{ 'is-disabled': disabled }"
-      @input="handleInput">
-    <span class="jc-input__suffix" v-if="showSuffix">
-     <i class="far fa-window-close" v-if="clearable && value" @click="clearInput"></i>
-     <i class="far fa-eye" v-if="showPassword" @click="handlePasswordVisible"></i>
-   </span>
+      :readonly="readonly"
+      @input="handleInput"
+      @blur="handleBlur"
+      @focus="handleFocus"></textarea>
   </div>
 </template>
 
@@ -45,6 +58,10 @@ export default {
       type: Boolean,
       default: false
     },
+    readonly: {
+      type: Boolean,
+      default: false
+    }
   },
   data () {
     return {
@@ -59,6 +76,12 @@ export default {
   methods: {
     handleInput (event) {
       this.$emit('input',event.target.value);
+    },
+    handleBlur (event) {
+      this.$emit('blur', event);
+    },
+    handleFocus (event) {
+      this.$emit('focus', event);
     },
     clearInput () {
       this.$emit('input', '');
@@ -105,7 +128,27 @@ export default {
       cursor:not-allowed;
     }
   }
-
+  .jc-textarea__inner{
+    display: block;
+    outline: none;
+    resize: vertical;
+    padding: 5px 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 33px;
+    font-size: inherit;
+    color: #606266;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    &:focus{
+      outline: none;
+      border-color: #409eff;
+    }
+  }
   // 后面加suffix的意思是后面如果有后缀的话，触发该样式
   .jc-input_suffix{
     .jc-input__suffix{
@@ -129,5 +172,7 @@ export default {
     }
   }
 }
+
+
 
 </style>

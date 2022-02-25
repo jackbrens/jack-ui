@@ -18,6 +18,7 @@
     "core-js": "^3.6.5",
     "eslint-plugin-html": "^6.2.0",
     "sass": "^1.43.4",
+    "sortablejs": "^1.14.0",
     "vue": "^2.6.11",
     "vue-router": "^3.5.3",
     "vuepress-plugin-demo-container": "^0.2.0",
@@ -54,6 +55,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "web-types": "highLight/web-types.json"
+  ]
 }

@@ -12,6 +12,10 @@ import CheckboxGroup from './checkbox-group';
 import Form from './from';
 import FormItem from './form-item';
 import Row from './row';
+import DragWrap from './drag-wrap';
+import DragItem from './drag-item';
+import DragWrapTest from './drag-wrap-test';
+import DragTestItem from './drag-test-item';
 
 const components = [
   Button,
@@ -25,7 +29,11 @@ const components = [
   CheckboxGroup,
   Form,
   FormItem,
-  Row
+  Row,
+  DragWrap,
+  DragItem,
+  DragWrapTest,
+  DragTestItem
 ]
 
 // 注册全局组件
@@ -39,6 +47,7 @@ const install = function (Vue) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
+
 
 export default {
   install

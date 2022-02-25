@@ -64,8 +64,8 @@
   </div>
   <div class="row">
     <div class="jc-input">
-      <jc-input></jc-input>
-      <input type="text">
+      <jc-input @blur="blur"></jc-input>
+      <input type="text" @blur="blur">
     </div>
   </div>
   <div class="row">
@@ -98,31 +98,37 @@
       <jc-checkbox label="备选项3"></jc-checkbox>
     </jc-checkbox-group>
   </div>
-  <div class="row">
-    <jc-form :model="form">
-      <jc-form-item label="用户名">
-        <div class="jc-input">
-          <jc-input placeholder="请输入用户名" v-model="form.name"></jc-input>
-        </div>
+  <div class="row" style="width: 600px; border: 1px solid #ccc">
+    <jc-form :model="form" ref="forms">
+      <jc-form-item label="用户名" prop="name">
+        <jc-input placeholder="请输入用户名" v-model="form.name"></jc-input>
       </jc-form-item>
-      <jc-form-item label="选项">
-        <jc-radio v-model="form.region" label="1">男</jc-radio>
-        <jc-radio v-model="form.region" label="0">女</jc-radio>
+      <jc-form-item label="选项" prop="resource">
+        <jc-radio-group v-model="form.resource">
+          <jc-radio label="男">男</jc-radio>
+          <jc-radio label="女">女</jc-radio>
+        </jc-radio-group>
       </jc-form-item>
       <jc-form-item label="是否符合">
-        <jc-switch v-model="value"></jc-switch>
+        <jc-switch v-model="form.delivery"></jc-switch>
       </jc-form-item>
-      <jc-form-item label="活动性质">
-        <jc-checkbox-group v-model="checked2">
+      <jc-form-item label="活动性质" prop="type">
+        <jc-checkbox-group v-model="form.type">
           <jc-checkbox label="地推活动"></jc-checkbox>
           <jc-checkbox label="线下主题活动"></jc-checkbox>
           <jc-checkbox label="单纯品牌曝光"></jc-checkbox>
         </jc-checkbox-group>
       </jc-form-item>
+      <jc-form-item label="活动说明" prop="desc">
+        <jc-input type="textarea" v-model="form.desc"></jc-input>
+      </jc-form-item>
       <jc-form-item>
         <jc-button type="primary">立即创建</jc-button>
-        <jc-button>取消</jc-button>
+        <jc-button @click="resetForm">重置</jc-button>
       </jc-form-item>
+      <jc-row>
+        我是迪迦
+      </jc-row>
     </jc-form>
   </div>
   <jc-row>
@@ -138,6 +144,28 @@
       <jc-checkbox label="备选项2"></jc-checkbox>
       <jc-checkbox label="备选项3"></jc-checkbox>
     </jc-checkbox-group>
+  </jc-row>
+  <jc-row>
+    <jc-drag-wrap
+      class="wrap"
+      :data="list"
+      @watchData="watchData"
+    >
+      <jc-drag-item
+        class="item"
+        v-for="(item, index) in list"
+        :key="index"
+      >
+        <div>整个可以拖拽{{item}}</div>
+      </jc-drag-item>
+    </jc-drag-wrap>
+  </jc-row>
+  <jc-row style="width: 600px">
+    <jc-drag-wrap-test :data.sync="tableData" stripe @watchData="watchData2">
+      <jc-drag-test-item v-for="item in tableData" :key="item.address">
+        {{ item.address }}
+      </jc-drag-test-item>
+    </jc-drag-wrap-test>
   </jc-row>
 </div>
 </template>
@@ -157,19 +185,44 @@ export default {
       checked2: ['迪迦', '盖亚'],
       form: {
         name: '',
-        region: 12,
-        date1: '',
-        date2: '',
         delivery: false,
         type: [],
         resource: '',
         desc: ''
-      }
+      },
+      list: [111, 222, 333, 444, 555, 666, 777, 888, 999],
+      tableData: [
+        {
+          address: '上海市普陀区金沙江路 1516 弄'
+        },
+        {
+          address: '上海市普陀区金沙江路 1517 弄'
+        },
+        {
+          address: '上海市普陀区金沙江路 1518 弄'
+        },
+        {
+          address: '上海市普陀区金沙江路 1519 弄'
+        }
+      ]
     }
   },
   methods: {
     func () {
       console.log('按钮点击触发');
+    },
+    watchData (newList) {
+      console.log('newList', newList);
+    },
+    watchData2 (newArr) {
+      console.log('new', newArr);
+    },
+    blur (event) {
+      console.log(event);
+    },
+    resetForm () {
+      console.log('重置', this.$refs.forms.resetFields());
+      this.form = this.$refs.forms.resetFields();
     }
   }
 }

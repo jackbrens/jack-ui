@@ -65,6 +65,10 @@
               "type": "boolean"
             },
             {
+              "name": "readonly",
+              "type": "boolean"
+            },
+            {
               "name": "name"
             }
           ]
@@ -161,6 +165,15 @@
               "name": "label"
             }
           ]
+        },
+        {
+          "name": "jc-row"
+        },
+        {
+          "name": "jc-drag-wrap"
+        },
+        {
+          "name": "jc-drag-item"
         }
       ]
     }
