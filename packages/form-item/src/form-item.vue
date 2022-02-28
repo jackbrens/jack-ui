@@ -50,7 +50,15 @@ export default {
         el: this.$el
       })
     }
-    this.getMessage();
+
+    // 获取rules里的message信息
+    if (this.Form.rules) {
+      if (this.Form.rules[this.prop]) {
+        this.Form.rules[this.prop].forEach(({ message }) =>{
+          this.message = message;
+        })
+      }
+    }
   },
   methods: {
     dispatchEvent (eventName, params) {
@@ -59,15 +67,6 @@ export default {
         return;
       }
       this.Form.$emit(eventName, params);
-    },
-
-    // 获取rules里的message信息
-    getMessage () {
-      if (this.Form.rules[this.prop]) {
-        this.Form.rules[this.prop].forEach(({ message }) =>{
-          this.message = message;
-        })
-      }
     }
   },
   beforeDestroy () {
