@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { eventBus } from '../../utils/index';
+
 export default {
   name: "jcRadio",
   inject: {
@@ -46,10 +48,20 @@ export default {
         this.RadioGroup ? this.RadioGroup.$emit('input', value) : this.$emit('input', value);
       }
     },
-    isGroup() {
+    isGroup () {
       // 双感叹号会变成布尔值
       return !!this.RadioGroup;
     },
+  },
+  mounted () {
+    eventBus.$on('clear',() => {
+      this.RadioGroup ? this.RadioGroup.$emit('input', '') : this.$emit('input', '');
+    })
+  },
+  methods: {
+    clearInput () {
+      this.RadioGroup ? this.RadioGroup.$emit('input', '') : this.$emit('input', '');
+    }
   }
 };
 </script>

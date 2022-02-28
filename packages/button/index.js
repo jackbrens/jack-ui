@@ -1,6 +1,7 @@
-import Vue from 'vue';
 import JCButton from './src/button';
 
-Vue.component(JCButton.name, JCButton);
+JCButton.install = function (Vue) {
+  Vue.component(JCButton.name, JCButton);
+}
 
 export default JCButton;

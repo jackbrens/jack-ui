@@ -1,6 +1,7 @@
-import Vue from 'vue';
 import JCSwitch from './src/switch';
 
-Vue.component(JCSwitch.name, JCSwitch);
+JCSwitch.install = function (Vue) {
+  Vue.component(JCSwitch.name, JCSwitch);
+}
 
 export default JCSwitch;

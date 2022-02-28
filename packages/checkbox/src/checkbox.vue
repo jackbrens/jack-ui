@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { eventBus } from "../../utils";
+
 export default {
   name: "jcCheckbox",
   inject: {
@@ -61,6 +63,11 @@ export default {
       // 如果没有group包裹，直接使用model
       return this.isGroup ? this.model.includes(this.label) : this.model;
     }
+  },
+  mounted () {
+    eventBus.$on('clear',() => {
+      this.isGroup ? this.CheckboxGroup.$emit('input', []) : this.$emit('input', false);
+    })
   }
 };
 </script>

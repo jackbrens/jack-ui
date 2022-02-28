@@ -47,8 +47,41 @@ const install = function (Vue) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
-
+export {
+  Button,
+  ButtonGroup,
+  Dialog,
+  Input,
+  Switch,
+  Radio,
+  RadioGroup,
+  Checkbox,
+  CheckboxGroup,
+  Form,
+  FormItem,
+  Row,
+  DragWrap,
+  DragItem,
+  DragWrapTest,
+  DragTestItem
+}
 
 export default {
-  install
+  install,
+  Button,
+  ButtonGroup,
+  Dialog,
+  Input,
+  Switch,
+  Radio,
+  RadioGroup,
+  Checkbox,
+  CheckboxGroup,
+  Form,
+  FormItem,
+  Row,
+  DragWrap,
+  DragItem,
+  DragWrapTest,
+  DragTestItem
 }

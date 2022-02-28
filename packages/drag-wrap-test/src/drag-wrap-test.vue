@@ -6,16 +6,13 @@
 
 <script>
 import { Sortable } from 'sortablejs';
+
 export default {
   name: "jcDragWrapTest",
   props: {
     data: {
       type: Array,
       default: () => []
-    },
-    stripe: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -40,7 +37,6 @@ export default {
       // 结束拖拽
       onEnd (event) {
         event.from.style.cursor = "";
-        console.log(event);
         vm.list = vm.data;
         vm.list.splice(event.newIndex, 0, vm.list.splice(event.oldIndex, 1)[0]);
         let newArr = vm.list.splice(0);

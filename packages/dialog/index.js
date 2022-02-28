@@ -1,6 +1,7 @@
-import Vue from 'vue';
 import JCDialog from './src/dialog';
 
-Vue.component(JCDialog.name, JCDialog);
+JCDialog.install = function (Vue) {
+  Vue.component(JCDialog.name, JCDialog);
+}
 
 export default JCDialog;

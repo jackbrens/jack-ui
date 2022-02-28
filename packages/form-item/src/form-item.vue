@@ -4,7 +4,7 @@
   <div class="jc-form-item__content">
     <slot></slot>
     <span class="jc-form-item__error" v-if="isError">
-      请填写{{ this.label }}
+      {{ this.message }}
     </span>
   </div>
 </div>
@@ -20,7 +20,8 @@ export default {
   inject: ['Form'],
   data () {
     return {
-      model: {}
+      model: {},
+      message: ''
     }
   },
   watch: {
@@ -42,9 +43,38 @@ export default {
              && value === '';
     }
   },
+  mounted () {
+    if (this.prop) {
+      this.dispatchEvent('form.addField', {
+        prop: this.prop,
+        el: this.$el
+      })
+    }
+    this.getMessage();
+  },
   methods: {
-    resetFields () {
-      this.isError = false;
+    dispatchEvent (eventName, params) {
+      if (typeof this.Form !== 'object' && !this.Form.$emit) {
+        console.error('FormItem必须在Form组件内');
+        return;
+      }
+      this.Form.$emit(eventName, params);
+    },
+
+    // 获取rules里的message信息
+    getMessage () {
+      if (this.Form.rules[this.prop]) {
+        this.Form.rules[this.prop].forEach(({ message }) =>{
+          this.message = message;
+        })
+      }
+    }
+  },
+  beforeDestroy () {
+    if (this.prop) {
+      this.dispatchEvent('form.removeField', {
+        prop: this.prop
+      })
     }
   }
 };

@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import {eventBus} from "../../utils";
+
 export default {
   name: "jcInput",
   props: {
@@ -61,11 +63,15 @@ export default {
     readonly: {
       type: Boolean,
       default: false
+    },
+    trimReplace: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      passwordVisible: false
+      passwordVisible: false // 点击icon图标显示隐藏密码
     }
   },
   computed:{
@@ -73,9 +79,14 @@ export default {
       return this.clearable || this.showPassword;
     }
   },
+  mounted () {
+    eventBus.$on('clear',() => {
+      this.$emit('input', '');
+    })
+  },
   methods: {
     handleInput (event) {
-      this.$emit('input',event.target.value);
+      this.$emit('input',event.target.value.trim());
     },
     handleBlur (event) {
       this.$emit('blur', event);

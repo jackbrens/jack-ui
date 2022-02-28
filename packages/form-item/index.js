@@ -1,6 +1,7 @@
-import Vue from 'vue';
 import JCFormItem from './src/form-item';
 
-Vue.component(JCFormItem.name, JCFormItem);
+JCFormItem.install = function (Vue) {
+  Vue.component(JCFormItem.name, JCFormItem);
+}
 
 export default JCFormItem;

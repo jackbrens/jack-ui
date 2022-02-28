@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { eventBus } from "../../utils";
+
 export default {
   name: "jcSwitch",
   props: {
@@ -56,6 +58,9 @@ export default {
   },
   mounted () {
     this.setColor();
+    eventBus.$on('clear',() => {
+      this.$emit('input', false);
+    })
   },
   methods: {
     switchClick () {

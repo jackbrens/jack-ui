@@ -1,6 +1,7 @@
-import Vue from 'vue';
 import JCRadioGroup from '../radio/src/radio-group';
 
-Vue.component(JCRadioGroup.name, JCRadioGroup);
+JCRadioGroup.install = function (Vue) {
+  Vue.component(JCRadioGroup.name, JCRadioGroup);
+}
 
 export default JCRadioGroup;
