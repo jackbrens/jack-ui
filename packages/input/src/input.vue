@@ -10,7 +10,7 @@
         :value="value"
         class="jc-input__inner"
         :class="{ 'is-disabled': disabled }"
-        @input="handleInput"
+        @input="debounceInput"
         @blur="handleBlur"
         @focus="handleFocus">
       <span class="jc-input__suffix" v-if="showSuffix">
@@ -23,14 +23,14 @@
       class="jc-textarea__inner"
       :disabled="disabled"
       :readonly="readonly"
-      @input="handleInput"
+      @input="debounceInput"
       @blur="handleBlur"
       @focus="handleFocus"></textarea>
   </div>
 </template>
 
 <script>
-import {eventBus} from "../../utils";
+import { eventBus, debounce } from "../../utils";
 
 export default {
   name: "jcInput",
@@ -67,6 +67,10 @@ export default {
     trimReplace: {
       type: Boolean,
       default: false
+    },
+    debounce: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -85,8 +89,14 @@ export default {
     })
   },
   methods: {
-    handleInput (event) {
-      this.$emit('input',event.target.value.trim());
+    debounceInput (event) {
+      if (this.debounce) {
+        debounce(() => {
+          this.$emit('input', event.target.value.trim());
+        }, 300)
+      } else {
+        this.$emit('input', event.target.value.trim());
+      }
     },
     handleBlur (event) {
       this.$emit('blur', event);

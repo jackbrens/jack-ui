@@ -1,6 +1,6 @@
 {
   "name": "jack-ui",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "private": false,
   "main": "dist/jack-ui.umd.js",
   "author": {
@@ -53,5 +53,9 @@
     "last 2 versions",
     "not dead"
   ],
+  "vetur": {
+    "tags": "highlight/tags.json",
+    "attributes": "highlight/attributes.json"
+  },
   "web-types": "highLight/web-types.json"
 }

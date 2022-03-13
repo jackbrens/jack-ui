@@ -64,7 +64,7 @@
   </div>
   <div class="row">
     <div class="jc-input">
-      <jc-input></jc-input>
+      <jc-input v-model="onIn" v-debounce:keyup="[getList, 500]"></jc-input>
     </div>
   </div>
   <div class="row">
@@ -100,7 +100,7 @@
   <div class="row" style="width: 600px; border: 1px solid #ccc">
     <jc-form :model="form" :rules="rules" ref="forms">
       <jc-form-item label="用户名" prop="name">
-        <jc-input placeholder="请输入用户名" v-model="form.name" trim-replace></jc-input>
+        <jc-input placeholder="请输入用户名" v-model="form.name" trim-replace debounce></jc-input>
       </jc-form-item>
       <jc-form-item label="性别" prop="resource">
         <jc-radio-group v-model="form.resource">
@@ -119,7 +119,7 @@
         </jc-checkbox-group>
       </jc-form-item>
       <jc-form-item label="活动说明" prop="desc">
-        <jc-input type="textarea" v-model="form.desc" ref="textarea"></jc-input>
+        <jc-input type="textarea" v-model="form.desc" ref="textarea" debounce></jc-input>
       </jc-form-item>
       <jc-form-item>
         <jc-button type="primary" @click="handleSubmit">立即创建</jc-button>
@@ -217,6 +217,7 @@ export default {
       radio3: 4,
       checked: false,
       checked2: ['迪迦', '盖亚'],
+      onIn: '我是迪迦',
       form: {
         name: '',
         delivery: false,
@@ -285,6 +286,9 @@ export default {
     },
     watchData2 (newArr) {
       console.log('new', newArr);
+    },
+    getList () {
+      console.log('发送axios请求...');
     },
     handleSubmit () {
       this.$refs.forms.validate(valid => {

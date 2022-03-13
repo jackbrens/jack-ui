@@ -1,5 +1,6 @@
 // 导入icon图标样式
 import '@fortawesome/fontawesome-free/css/all.css';
+import './utils/directives';
 import Button from './button';
 import ButtonGroup from './button-group';
 import Dialog from './dialog';

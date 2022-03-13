@@ -70,6 +70,13 @@
             },
             {
               "name": "name"
+            },
+            {
+              "name": "debounce",
+              "type": "boolean"
+            },
+            {
+              "name": "v-debounce:事件名"
             }
           ]
         },
